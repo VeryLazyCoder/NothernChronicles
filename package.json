@@ -1,0 +1,12 @@
+{
+  "name": "northern-chronicles",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Учебная карточная игра: frontend и задание на Java backend",
+  "scripts": {
+    "start": "node tools/serve.mjs",
+    "test": "node --test tests/game.test.js tests/transport.test.js",
+    "check": "node --check frontend/src/app.js && node --check frontend/src/game.js && node --check frontend/src/transport.js"
+  }
+}
