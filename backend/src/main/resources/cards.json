@@ -1,0 +1,144 @@
+{
+  "cards" : [
+    {
+      "cardId" : "warden",
+      "name" : "Страж пустоты",
+      "type" : "UNIT",
+      "row" : "MELEE",
+      "power" : 4,
+      "hero" : false,
+      "flavor" : "Пустота холодна",
+      "art" : null
+    },
+    {
+      "cardId" : "rider",
+      "name" : "Наездник на виверне",
+      "type" : "UNIT",
+      "row" : "MELEE",
+      "power" : 6,
+      "hero" : false,
+      "flavor" : "Летая на виверне можно стрелять из лука, но нет...",
+      "art" : null
+    },
+    {
+      "cardId" : "wolf",
+      "name" : "Ручной серый волк",
+      "type" : "UNIT",
+      "row" : "MELEE",
+      "power" : 5,
+      "hero" : false,
+      "flavor" : "Сказочное создание, но дело своё знает",
+      "art" : null
+    },
+    {
+      "cardId" : "archer",
+      "name" : "Эльфийский лучник",
+      "type" : "UNIT",
+      "row" : "RANGED",
+      "power" : 5,
+      "hero" : false,
+      "flavor" : "Его стрелу даже ведьмак не собьёт",
+      "art" : null
+    },
+    {
+      "cardId" : "scout",
+      "name" : "Подозрительный разведчик",
+      "type" : "UNIT",
+      "row" : "RANGED",
+      "power" : 3,
+      "hero" : false,
+      "flavor" : "Разведчиков много, но этот точно наш",
+      "art" : null
+    },
+    {
+      "cardId" : "crossbow",
+      "name" : "Арбалетчик",
+      "type" : "UNIT",
+      "row" : "RANGED",
+      "power" : 6,
+      "hero" : false,
+      "flavor" : "Тоскует по закончившемуся лету",
+      "art" : null
+    },
+    {
+      "cardId" : "catapult",
+      "name" : "Катапульта КАРЛ",
+      "type" : "UNIT",
+      "row" : "SIEGE",
+      "power" : 8,
+      "hero" : false,
+      "flavor" : "Точность не важна, если камень БОЛЬШОГО калибра",
+      "art" : null
+    },
+    {
+        "cardId" : "engineer",
+      "name" : "Мастер осады",
+      "type" : "UNIT",
+      "row" : "SIEGE",
+      "power" : 4,
+      "hero" : false,
+      "flavor" : "Осадит что и кого угодно",
+      "art" : null
+    },
+    {
+      "cardId" : "hero",
+      "name" : "Ламберт",
+      "type" : "UNIT",
+      "row" : "MELEE",
+      "power" : 10,
+      "hero" : true,
+      "flavor" : "Хер Моржовый",
+      "art" : null
+    },
+    {
+      "cardId" : "frost",
+      "name" : "Лютый мороз",
+      "type" : "WEATHER",
+      "row" : "MELEE",
+      "power" : 0,
+      "hero" : false,
+      "flavor" : "Снижает силу обычных войск в ближнем ряду до 1",
+      "art" : null
+    },
+    {
+      "cardId" : "rain",
+      "name" : "Проливной дождь",
+      "type" : "WEATHER",
+      "row" : "SIEGE",
+      "power" : 0,
+      "hero" : false,
+      "flavor" : "Снижает силу обычных войск в осадном ряду до 1",
+      "art" : null
+    },
+    {
+      "cardId" : "fog",
+      "name" : "Туман (густой как молоко)",
+      "type" : "WEATHER",
+      "row" : "RANGED",
+      "power" : 0,
+      "hero" : false,
+      "flavor" : "Снижает силу обычных войск в дальнобойном ряду до 1",
+      "art" : null
+    },
+    {
+      "cardId" : "clear",
+      "name" : "Ясное небо",
+      "type" : "CLEAR",
+      "row" : null,
+      "power" : 0,
+      "hero" : false,
+      "flavor" : "Отменяет действие всех погодных эффектов",
+      "art" : null
+    },
+    {
+      "cardId" : "horn",
+      "name" : "Боевой рог",
+      "type" : "HORN",
+      "row" : null,
+      "power" : 0,
+      "hero" : false,
+      "flavor" : "Удваивает силу ряда, не действует на героев",
+      "art" : null
+    }
+  ]
+}

@@ -1,7 +1,21 @@
-# Здесь будет ваш Java backend
+# Backend проекта Northern Chronicles
 
-Реализация намеренно оставлена вам. В этой папке нет скрытого готового сервера.
+Проект серверной части пошаговой игры на основе Spring Boot и чистой доменной модели.
 
-Создайте Spring Boot Maven-проект в этой директории. Структура пакетов и модель находятся в `../docs/ARCHITECTURE.md`, порядок работы — в `../docs/BACKEND_TODO.md`, обязательные имена JSON-полей — в `../docs/PROTOCOL.md`.
+## Окружение и стек технологий
+- **JDK:** 27
+- **Spring Boot:** 4.1.1
+- **Сборщик:** Apache Maven (Maven Wrapper в комплекте)
+- **Порт сервера:** 8080
+- **Разрешённый origin фронтенда (CORS/WS):** `http://localhost:5173`
 
-Начните с чистого Java-домена и JUnit-тестов без Spring. Первое сетевое подключение фронтенда потребует POST `/api/session`, cookie-сессии и raw WebSocket `/ws`. STOMP и SockJS клиент не использует.
+## Команды сборки и запуска
+
+### Windows:
+- Запуск тестов: `.\mvnw.cmd test`
+- Сборка и запуск: `.\mvnw.cmd spring-boot:run`
+
+### Linux / macOS:
+- Запуск тестов: `./mvnw test`
+- Сборка и запуск: `./mvnw spring-boot:run`
+
