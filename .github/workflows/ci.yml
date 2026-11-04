@@ -1,0 +1,51 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  frontend-check:
+    name: Frontend Quality & Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Verify JavaScript syntax
+        run: npm run check
+
+      - name: Run frontend unit & integration tests
+        run: npm test
+
+  backend-check:
+    name: Backend Build & Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '27'
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Make Maven Wrapper executable
+        run: chmod +x backend/mvnw
+
+      - name: Build & Run JUnit Tests
+        working-directory: backend
+        run: ./mvnw -B clean test

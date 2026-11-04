@@ -4,7 +4,7 @@
 
 ## Окружение и стек технологий
 - **JDK:** 27
-- **Spring Boot:** 4.1.1
+- **Spring Boot:** 3.3.5
 - **Сборщик:** Apache Maven (Maven Wrapper в комплекте)
 - **Порт сервера:** 8080
 - **Разрешённый origin фронтенда (CORS/WS):** `http://localhost:5173`

@@ -4,7 +4,7 @@
 
 ## Этап 0. Окружение и первое приложение
 
-- [ ] **Создать Maven-проект в `backend/`.** Выберите Java 21, совместимую стабильную Spring Boot, зависимости Spring Web, WebSocket, Validation. Сгенерируйте Maven Wrapper. Не добавляйте JPA и Security до понимания их роли; Security для cookie/CSRF и endpoint-политик подключите перед реальным сетевым использованием.
+- [ ] **Создать Maven-проект в `backend/`.** Выберите Java 27, совместимую стабильную Spring Boot, зависимости Spring Web, WebSocket, Validation. Сгенерируйте Maven Wrapper. Не добавляйте JPA и Security до понимания их роли; Security для cookie/CSRF и endpoint-политик подключите перед реальным сетевым использованием.
 - [ ] **Зафиксировать версии.** Запишите в backend README версии JDK, Boot, Maven, команды запуска Windows/Linux, порт 8080. Используйте Boot dependency management, не выбирайте вручную несовместимые версии Jackson и Spring.
 - [ ] **Добавить профиль local.** Разрешённый frontend-origin вынесите в конфигурацию. Начните с `http://localhost:5173`. Не храните секреты в application.yml.
 - [ ] **Проверить пустой проект.** Запустите `mvnw.cmd test` и `mvnw.cmd spring-boot:run`, убедитесь, что сервер стартует. Создайте Git-репозиторий и первый коммит.

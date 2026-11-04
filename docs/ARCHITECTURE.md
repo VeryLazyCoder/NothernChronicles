@@ -185,4 +185,4 @@ POST `/api/session` создаёт гостя либо возвращает су
 
 После работающего online MVP: восстановление после перезагрузки страницы, конфигурируемые колоды и серверная валидация, сброс начальных карт, лидеры, способности «шпион»/«медик», фракционные правила, история матчей. Для каждой способности сначала обновите доменные правила и тесты, затем JSON-каталог/контракт и frontend. Не добавляйте скрытую серверную способность, которую клиент не умеет показывать.
 
-Справочные первоисточники: [Spring WebSocket API и Origin](https://docs.spring.io/spring-framework/reference/web/websocket/server.html), [Spring Boot: совместимость Java](https://docs.spring.io/spring-boot/system-requirements.html). Предлагаемый выбор Java 21 — решение для этого практикума, а не требование использовать новейшую Java.
+Справочные первоисточники: [Spring WebSocket API и Origin](https://docs.spring.io/spring-framework/reference/web/websocket/server.html), [Spring Boot: совместимость Java](https://docs.spring.io/spring-boot/system-requirements.html). Предлагаемый выбор Java 27 — решение для этого практикума.
