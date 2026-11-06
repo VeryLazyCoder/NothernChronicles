@@ -1,4 +1,4 @@
-﻿package ru.practicum.gwint_backend.domain.rules;
+package ru.practicum.gwint_backend.domain.rules;
 
 import jdk.jshell.spi.ExecutionControl;
 import ru.practicum.gwint_backend.domain.model.*;

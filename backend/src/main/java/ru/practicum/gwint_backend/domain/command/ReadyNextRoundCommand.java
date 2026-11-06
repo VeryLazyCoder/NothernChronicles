@@ -1,4 +1,4 @@
-﻿package ru.practicum.gwint_backend.domain.command;
+package ru.practicum.gwint_backend.domain.command;
 
 public record ReadyNextRoundCommand() implements DomainCommand{
 }

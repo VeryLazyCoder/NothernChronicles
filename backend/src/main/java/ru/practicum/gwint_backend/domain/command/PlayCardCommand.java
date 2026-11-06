@@ -1,4 +1,4 @@
-﻿package ru.practicum.gwint_backend.domain.command;
+package ru.practicum.gwint_backend.domain.command;
 
 import ru.practicum.gwint_backend.domain.model.CardInstance;
 import ru.practicum.gwint_backend.domain.model.InstanceId;
