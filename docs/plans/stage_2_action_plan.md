@@ -62,8 +62,8 @@ backend/
 Создать в пакете `ru.practicum.gwint_backend.domain.command`:
 - `DomainCommand` — `public sealed interface DomainCommand permits PlayCardCommand, PassCommand, ReadyNextRoundCommand`.
 - `PlayCardCommand(InstanceId cardInstanceId, Row row)`:
-  - `cardInstanceId` не должен быть `null`.
-  - `row` обязателен для `UNIT` и `HORN`, но может быть `null` для `WEATHER` и `CLEAR`.
+  - В компактном конструкторе: проверка `Objects.requireNonNull(cardInstanceId)`.
+  - Поле `row` может быть `null` на уровне рекорда (для `WEATHER` и `CLEAR`). Валидация наличия и соответствия `row` типу карты производится позже в `GameEngine`.
 - `PassCommand()` — пустой record-сигнал паса.
 - `ReadyNextRoundCommand()` — пустой record-сигнал готовности (задел для Этапа 3).
 
