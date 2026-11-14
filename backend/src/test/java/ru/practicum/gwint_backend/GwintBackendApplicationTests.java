@@ -118,8 +118,9 @@ class GwintBackendApplicationTests {
 	void checkPassingValidationWithCorrectRound(){
 		var player1 = new PlayerId("player1");
 		var player2 = new PlayerId("player2");
+		var activePlayer = new Random().nextBoolean()? player1 : player2;
 		var matchState = factory.createInitialMatch(new MatchId("Match 1"), player1, "Gamer1",
-				player2, "Gamer2", new Random());
+				player2, "Gamer2", new Random(), activePlayer);
 
 		MatchInvariants.validate(matchState, new JsonCardCatalog());
 	}
@@ -129,8 +130,9 @@ class GwintBackendApplicationTests {
 	void checkFailingValidationWithIncorrectRound(){
 		var player1 = new PlayerId("player1");
 		var player2 = new PlayerId("player2");
+		var activePlayer = new Random().nextBoolean()? player1 : player2;
 		var matchState = factory.createInitialMatch(new MatchId("Match 1"), player1, "Gamer1",
-				player2, "Gamer2", new Random());
+				player2, "Gamer2", new Random(), activePlayer);
 		var catalog = new JsonCardCatalog();
 
 		// 1. В фазе PLAYING активный игрок не может быть null

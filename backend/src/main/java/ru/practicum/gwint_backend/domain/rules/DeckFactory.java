@@ -36,12 +36,11 @@ public class DeckFactory {
         return result;
     }
 
-    public MatchState createInitialMatch(MatchId id, PlayerId p1, String name1, PlayerId p2, String name2, RandomGenerator random) {
+    public MatchState createInitialMatch(MatchId id, PlayerId p1, String name1, PlayerId p2, String name2,
+                                         RandomGenerator random, PlayerId startingPlayer) {
         var player1 = createInitialPlayerState(p1, name1, random);
         var player2 = createInitialPlayerState(p2, name2, random);
         var players = List.of(player1, player2);
-        var startingPlayer = players.get(random.nextInt(players.size())).id();
-
         var match = new MatchState(id, 0, MatchPhase.PLAYING, 1, startingPlayer, startingPlayer,
                 players, new HashSet<>(),
                 new HashSet<>(),

@@ -65,44 +65,34 @@ public record PlayerState(
         return new PlayerState(id, name, lives, isPassed, hand, deck, discardedCards, board, newHorns);
     }
 
-    //TODO использовать эти заготовки на следующем этапе, учесть про необходимость добавлять разыгранные карты на доску
+    public PlayerState withCardPlayedToBoard(CardInstance cardPlayed, Row row) {
+        if (!hand.contains(cardPlayed))
+            throw new RuleViolationException(ErrorCode.CARD_NOT_IN_HAND, "This card have not been found in player's hand");
 
-//    public PlayerState withCardPlayed(CardInstance cardPlayed) {
-//        if (!hand.contains(cardPlayed))
-//            throw new RuleViolationException(ErrorCode.CARD_NOT_IN_HAND, "This card have not found in player's hand");
-//
-//        var newHand = new ArrayList<>(hand);
-//        newHand.remove(cardPlayed);
-//        return new PlayerState(id, name, lives, isPassed, newHand, deck, discardedCards, board, horns);
-//    }
-//
-//    public PlayerState withAddedCardToHand(CardInstance card) {
-//        var newHand = new ArrayList<>(hand);
-//        newHand.add(card);
-//
-//        return new PlayerState(id, name, lives, isPassed, newHand, deck, discardedCards, board, horns);
-//    }
-//
-//    public PlayerState withCardDiscarded(CardInstance cardPlayed) {
-//        if (!hand.contains(cardPlayed))
-//            throw new RuleViolationException(ErrorCode.CARD_NOT_IN_HAND, "This card have not found in player's hand");
-//
-//        var newHand = new ArrayList<>(hand);
-//        newHand.remove(cardPlayed);
-//        var newDiscardedCards = new ArrayList<CardInstance>(discardedCards);
-//        newDiscardedCards.remove(cardPlayed);
-//        return new PlayerState(id, name, lives, isPassed, newHand, deck, newDiscardedCards, board, horns);
-//    }
-//
-//    public PlayerState withTakenCardFromDeck() {
-//        var newHand = new ArrayList<>(hand);
-//        if (deck.isEmpty())
-//            throw new RuleViolationException(ErrorCode.CARD_NOT_IN_HAND, "Deck is empty");
-//        var cardToTake = deck.getFirst();
-//        newHand.add(cardToTake);
-//        var newDeck = new ArrayList<CardInstance>(deck);
-//        newDeck.remove(cardToTake);
-//
-//        return new PlayerState(id, name, lives, isPassed, newHand, newDeck, discardedCards, board, horns);
-//    }
+        var newHand = new ArrayList<>(hand);
+        newHand.remove(cardPlayed);
+        return new PlayerState(id, name, lives, isPassed, newHand, deck, discardedCards,
+                board.withAddedCard(cardPlayed, row), horns);
+    }
+
+    public PlayerState withHornPlaced(HornPlacement horn){
+        var hornInstance = horn.card();
+        if (!hand.contains(hornInstance))
+            throw new RuleViolationException(ErrorCode.CARD_NOT_IN_HAND, "This card have not been found in player's hand");
+
+        var newHand = new ArrayList<>(hand);
+        newHand.remove(hornInstance);
+        return withHornPlacement(horn).withHand(newHand);
+    }
+
+    public PlayerState withCardDiscarded(CardInstance cardPlayed) {
+        if (!hand.contains(cardPlayed))
+            throw new RuleViolationException(ErrorCode.CARD_NOT_IN_HAND, "This card have not been found in player's hand");
+
+        var newHand = new ArrayList<>(hand);
+        newHand.remove(cardPlayed);
+        var newDiscardedCards = new ArrayList<CardInstance>(discardedCards);
+        newDiscardedCards.add(cardPlayed);
+        return new PlayerState(id, name, lives, isPassed, newHand, deck, newDiscardedCards, board, horns);
+    }
 }
