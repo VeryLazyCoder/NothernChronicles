@@ -44,7 +44,7 @@ public class DeckFactory {
         var match = new MatchState(id, 0, MatchPhase.PLAYING, 1, startingPlayer, startingPlayer,
                 players, new HashSet<>(),
                 new HashSet<>(),
-                new ArrayList<>(), null, List.of("Матч начался"));
+                new ArrayList<>(), null, null, List.of("Матч начался"));
 
         return match;
     }
