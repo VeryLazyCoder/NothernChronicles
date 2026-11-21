@@ -19,6 +19,7 @@ public record MatchState(MatchId id,
                          Set<PlayerId> ready,
                          List<RoundResult> results,
                          PlayerId winner,
+                         MatchOutcome outcome,
                          List<String> logs) {
 
     public MatchState{
@@ -38,38 +39,40 @@ public record MatchState(MatchId id,
         ready = Set.copyOf(ready);
         results = List.copyOf(results);
         logs = List.copyOf(logs);
-
     }
 
     public MatchState withRevision(long newRevision) {
-        return new MatchState(id, newRevision, phase, round, starterId, activePlayerId, players, weather, ready, results, winner, logs);
+        return new MatchState(id, newRevision, phase, round, starterId, activePlayerId, players, weather, ready, results, winner, outcome, logs);
     }
     public MatchState withPhase(MatchPhase newPhase) {
-        return new MatchState(id, revision, newPhase, round, starterId, activePlayerId, players, weather, ready, results, winner, logs);
+        return new MatchState(id, revision, newPhase, round, starterId, activePlayerId, players, weather, ready, results, winner, outcome, logs);
     }
     public MatchState withRound(int newRound) {
-        return new MatchState(id, revision, phase, newRound, starterId, activePlayerId, players, weather, ready, results, winner, logs);
+        return new MatchState(id, revision, phase, newRound, starterId, activePlayerId, players, weather, ready, results, winner, outcome, logs);
     }
     public MatchState withStarter(PlayerId newStarter) {
-        return new MatchState(id, revision, phase, round, newStarter, activePlayerId, players, weather, ready, results, winner, logs);
+        return new MatchState(id, revision, phase, round, newStarter, activePlayerId, players, weather, ready, results, winner, outcome, logs);
     }
     public MatchState withActivePlayer(PlayerId newActivePlayer) {
-        return new MatchState(id, revision, phase, round, starterId, newActivePlayer, players, weather, ready, results, winner, logs);
+        return new MatchState(id, revision, phase, round, starterId, newActivePlayer, players, weather, ready, results, winner, outcome, logs);
     }
     public MatchState withPlayers(List<PlayerState> newPlayers) {
-        return new MatchState(id, revision, phase, round, starterId, activePlayerId, newPlayers, weather, ready, results, winner, logs);
+        return new MatchState(id, revision, phase, round, starterId, activePlayerId, newPlayers, weather, ready, results, winner, outcome, logs);
     }
     public MatchState withWeather(Set<Row> newWeather) {
-        return new MatchState(id, revision, phase, round, starterId, activePlayerId, players, newWeather, ready, results, winner, logs);
+        return new MatchState(id, revision, phase, round, starterId, activePlayerId, players, newWeather, ready, results, winner, outcome, logs);
     }
     public MatchState withReady(Set<PlayerId> newReady) {
-        return new MatchState(id, revision, phase, round, starterId, activePlayerId, players, weather, newReady, results, winner, logs);
+        return new MatchState(id, revision, phase, round, starterId, activePlayerId, players, weather, newReady, results, winner, outcome, logs);
     }
     public MatchState withResults(List<RoundResult> newResults) {
-        return new MatchState(id, revision, phase, round, starterId, activePlayerId, players, weather, ready, newResults, winner, logs);
+        return new MatchState(id, revision, phase, round, starterId, activePlayerId, players, weather, ready, newResults, winner, outcome, logs);
     }
     public MatchState withWinner(PlayerId newWinner) {
-        return new MatchState(id, revision, phase, round, starterId, activePlayerId, players, weather, ready, results, newWinner, logs);
+        return new MatchState(id, revision, phase, round, starterId, activePlayerId, players, weather, ready, results, newWinner, outcome, logs);
+    }
+    public MatchState withOutcome(MatchOutcome newOutcome) {
+        return new MatchState(id, revision, phase, round, starterId, activePlayerId, players, weather, ready, results, winner, newOutcome, logs);
     }
     public MatchState withLogsAddRow(String row) {
         var newLogs = new ArrayList<String>(logs);
@@ -77,7 +80,7 @@ public record MatchState(MatchId id,
         if (newLogs.size() > 40)
             newLogs.removeFirst();
 
-        return new MatchState(id, revision, phase, round, starterId, activePlayerId, players, weather, ready, results, winner, newLogs);
+        return new MatchState(id, revision, phase, round, starterId, activePlayerId, players, weather, ready, results, winner, outcome, newLogs);
     }
     public MatchState withUpdatedPlayer(PlayerState newPlayer){
         var newPlayers = new ArrayList<PlayerState>(players);

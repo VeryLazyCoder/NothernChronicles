@@ -95,4 +95,14 @@ public record PlayerState(
         newDiscardedCards.add(cardPlayed);
         return new PlayerState(id, name, lives, isPassed, newHand, deck, newDiscardedCards, board, horns);
     }
+
+    public PlayerState withRoundEndCleanup(){
+        var newDiscarded = new ArrayList<>(discardedCards);
+        newDiscarded.addAll(board.allCards());
+        newDiscarded.addAll(horns.stream().map(HornPlacement::card).toList());
+        return withDiscardedCards(newDiscarded)
+                .withBoard(Board.empty())
+                .withHorns(List.of())
+                .withPassed(hand.isEmpty());
+    }
 }
